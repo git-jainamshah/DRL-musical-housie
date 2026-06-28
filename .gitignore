@@ -4,8 +4,9 @@ node_modules/
 .env
 .env.*
 
-# Python download script deps — NOT needed on Vercel, keep out of repo
+# Python download script and deps — NOT needed on Vercel, keep out of repo
 requirements.txt
+scripts/
 
 # Keep audio folder structure but ignore large files until downloaded
 # Remove the line below if you want to commit audio to git
