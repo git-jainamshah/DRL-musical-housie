@@ -14,13 +14,12 @@
     isSeeking: false,
   };
 
-  // ── DOM references ────────────────────────────────
-  // Wrapped in a helper so missing elements don't throw
+  // ── DOM refs ──────────────────────────────────────
   function el(id) { return document.getElementById(id); }
 
   const els = {
-    // Event info (some may be null if removed from HTML)
-    eventBlessing: el("event-blessing"),  // hidden span
+    // Event info
+    eventBlessing: el("event-blessing"),
     eventEvening:  el("event-evening"),
     eventTitle:    el("event-title"),
     eventSubtitle: el("event-subtitle"),
@@ -28,23 +27,24 @@
     eventHosts:    el("event-hosts"),
 
     // Now-playing
-    nowArtBg:      el("now-art-bg"),     // gradient fallback div
-    nowArtImg:     el("now-art-img"),    // YouTube thumbnail <img>
-    housieNumber:  el("housie-number"),
-    numberAliases: el("number-aliases"),
-    songNameGu:    el("song-name-gu"),
-    songNameHi:    el("song-name-hi"),
-    songSingers:   el("song-singers"),
-    songMeta:      el("song-meta"),      // combined movie · year · music
+    nowArtBg:     el("now-art-bg"),
+    nowArtImg:    el("now-art-img"),
+    nowArtWrap:   el("now-art-wrap"),
+    housieNumber: el("housie-number"),
+    numberAliases:el("number-aliases"),
+    songNameGu:   el("song-name-gu"),
+    songNameHi:   el("song-name-hi"),
+    songSingers:  el("song-singers"),
+    songMeta:     el("song-meta"),
 
-    // Progress
+    // Main progress
     progressBar:   el("progress-bar"),
     progressFill:  el("progress-fill"),
     progressTrack: el("progress-track"),
     timeCurrent:   el("time-current"),
     timeTotal:     el("time-total"),
 
-    // Controls
+    // Main controls
     btnPrev:   el("btn-prev"),
     btnPlay:   el("btn-play"),
     playIcon:  el("play-icon"),
@@ -57,30 +57,44 @@
     volumeBar:  el("volume-bar"),
     volumeFill: el("volume-fill"),
 
-    // Misc
+    // Status
     statusMsg: el("status-msg"),
     songList:  el("song-list"),
     audio:     el("audio-player"),
     app:       el("app"),
+    mainScroll:el("main-scroll"),
+
+    // Mini-player
+    miniPlayer:       el("mini-player"),
+    miniProgressFill: el("mini-progress-fill"),
+    miniArtBg:        el("mini-art-bg"),
+    miniArtImg:       el("mini-art-img"),
+    miniNumber:       el("mini-number"),
+    miniName:         el("mini-name"),
+    miniSub:          el("mini-sub"),
+    miniInfoBtn:      el("mini-info-btn"),
+    miniRandom:       el("mini-random"),
+    miniPrev:         el("mini-prev"),
+    miniPlay:         el("mini-play"),
+    miniPlayIcon:     el("mini-play-icon"),
+    miniPauseIcon:    el("mini-pause-icon"),
+    miniNext:         el("mini-next"),
   };
 
   // ── YouTube thumbnail ─────────────────────────────
-  // Extract video ID from a youtube.com/watch?v=... URL
   function getYouTubeId(url) {
     if (!url) return null;
     const m = url.match(/[?&]v=([\w-]{11})/);
     return m ? m[1] : null;
   }
 
-  // Returns hqdefault.jpg URL (480×360) — used for main art
   function getYouTubeThumb(url, quality) {
     const id = getYouTubeId(url);
     if (!id) return null;
     return "https://img.youtube.com/vi/" + id + "/" + (quality || "hqdefault") + ".jpg";
   }
 
-  // ── Gradient fallback per song ────────────────────
-  // 30 distinct dark-to-vivid gradients, used as CSS bg
+  // ── Gradient fallbacks ────────────────────────────
   const GRADIENT_HUES = [
     [340, 280], [200, 260], [140, 170], [30,  60],  [280, 320],
     [170, 200], [50,  20],  [310, 270], [220, 180], [80,  110],
@@ -95,7 +109,7 @@
     return "linear-gradient(135deg, hsl(" + h1 + ",60%,18%) 0%, hsl(" + h2 + ",72%,38%) 100%)";
   }
 
-  // ── Utility ───────────────────────────────────────
+  // ── Utilities ─────────────────────────────────────
   function setTxt(domEl, val) {
     if (domEl && val !== undefined && val !== null) domEl.textContent = val;
   }
@@ -115,18 +129,26 @@
   function duration()           { const d = els.audio.duration; return isFinite(d) && d > 0 ? d : 0; }
   function setStatus(m)         { setTxt(els.statusMsg, m || ""); }
 
+  // ── Playing state (CSS class) ─────────────────────
+  // Drives: header glow, art-wrap pulse, vinyl ring, mini eq overlay
+  function updatePlayingState() {
+    const playing = state.isPlaying && !els.audio.paused;
+    els.app.classList.toggle("is-playing", playing);
+  }
+
   // ── Progress ──────────────────────────────────────
   function updateProgressUI(val, dur) {
     const pct = val / PROGRESS_MAX;
-    els.progressFill.style.width = (pct * 100) + "%";
-    if (dur > 0) els.timeCurrent.textContent = formatTime(pct * dur);
+    if (els.progressFill)  els.progressFill.style.width  = (pct * 100) + "%";
+    if (els.miniProgressFill) els.miniProgressFill.style.width = (pct * 100) + "%";
+    if (dur > 0 && els.timeCurrent) els.timeCurrent.textContent = formatTime(pct * dur);
   }
 
   function syncProgress() {
     const dur = duration();
     if (!dur) return;
     const val = Math.round((els.audio.currentTime / dur) * PROGRESS_MAX);
-    els.progressBar.value = val;
+    if (els.progressBar) els.progressBar.value = val;
     updateProgressUI(val, dur);
   }
 
@@ -139,28 +161,50 @@
 
   // ── Volume ────────────────────────────────────────
   function updateVolume() {
-    els.volumeFill.style.width  = els.volumeBar.value + "%";
+    if (els.volumeFill) els.volumeFill.style.width = els.volumeBar.value + "%";
     els.audio.volume = els.volumeBar.value / 100;
   }
 
-  // ── Art display ───────────────────────────────────
+  // ── Art URL — local image first, YouTube thumb as fallback ──
+  function getArtUrl(song, ytQuality) {
+    return song.image || getYouTubeThumb(song.youtube, ytQuality || "hqdefault") || null;
+  }
+
+  // ── Art (main player) ─────────────────────────────
   function updateArt(song) {
-    const grad  = songGradient(song.id);
-    const thumb = getYouTubeThumb(song.youtube, "hqdefault");
-
-    // Gradient fallback div — always set
-    if (els.nowArtBg) els.nowArtBg.style.background = grad;
-
-    // YouTube thumbnail image
+    const grad = songGradient(song.id);
+    const url  = getArtUrl(song, "hqdefault");
+    if (els.nowArtBg)  els.nowArtBg.style.background = grad;
     if (els.nowArtImg) {
-      if (thumb) {
-        els.nowArtImg.src = thumb;
-        els.nowArtImg.style.opacity = "1";
-      } else {
-        els.nowArtImg.src = "";
-        els.nowArtImg.style.opacity = "0";
-      }
+      if (url) { els.nowArtImg.src = url; els.nowArtImg.style.opacity = "1"; }
+      else     { els.nowArtImg.src = "";  els.nowArtImg.style.opacity = "0"; }
     }
+  }
+
+  // ── Mini-player update ────────────────────────────
+  function updateMiniPlayer() {
+    const song    = currentSong();
+    const playing = state.isPlaying && !els.audio.paused;
+
+    if (!song) return;
+
+    // Art
+    const grad = songGradient(song.id);
+    const url  = getArtUrl(song, "mqdefault");
+    if (els.miniArtBg)  els.miniArtBg.style.background = grad;
+    if (els.miniArtImg) {
+      if (url) { els.miniArtImg.src = url; els.miniArtImg.style.opacity = "1"; }
+      else     { els.miniArtImg.src = "";  els.miniArtImg.style.opacity = "0"; }
+    }
+
+    // Info
+    setTxt(els.miniNumber, toGu(state.currentHousieNumber));
+    setTxt(els.miniName,   song.nameGu);
+    setTxt(els.miniSub,    (song.singers || "") + (song.movie ? " · " + song.movie : ""));
+
+    // Play/pause icons
+    if (els.miniPlayIcon)  els.miniPlayIcon.classList.toggle("hidden",  playing);
+    if (els.miniPauseIcon) els.miniPauseIcon.classList.toggle("hidden", !playing);
   }
 
   // ── Display update ────────────────────────────────
@@ -168,43 +212,43 @@
     const song = currentSong();
     if (!song) return;
 
-    // Number
-    setTxt(els.housieNumber, toGu(state.currentHousieNumber));
+    setTxt(els.housieNumber,  toGu(state.currentHousieNumber));
     setTxt(els.numberAliases, houseNums(song.id).map(toGu).join(" · "));
+    setTxt(els.songNameGu,    song.nameGu);
+    setTxt(els.songNameHi,    song.nameHi);
+    setTxt(els.songSingers,   song.singers || "");
 
-    // Song info
-    setTxt(els.songNameGu,  song.nameGu);
-    setTxt(els.songNameHi,  song.nameHi);
-    setTxt(els.songSingers, song.singers || "");
-
-    // Combined meta line: Movie · Year · Music: Director
     const metaParts = [song.movie, song.year, song.musicBy ? "Music: " + song.musicBy : ""].filter(Boolean);
     setTxt(els.songMeta, metaParts.join(" · "));
 
     updateArt(song);
+    updateMiniPlayer();
     renderList();
   }
 
   // ── Song List ─────────────────────────────────────
   function renderList() {
-    const curId    = songIdFromHousie(state.currentHousieNumber);
-    const playing  = state.isPlaying && !els.audio.paused;
+    const curId   = songIdFromHousie(state.currentHousieNumber);
+    const playing = state.isPlaying && !els.audio.paused;
     els.songList.innerHTML = "";
 
     state.songs.forEach(function (song) {
       const isActive  = song.id === curId;
       const allPlayed = houseNums(song.id).every(function (n) { return state.playedNumbers.has(n); });
       const nums      = houseNums(song.id).map(toGu).join("·");
-      const grad      = songGradient(song.id);
-      const thumb     = getYouTubeThumb(song.youtube, "mqdefault");
+      const grad    = songGradient(song.id);
+      const artUrl  = getArtUrl(song, "mqdefault");
 
-      // Index cell: speaker icon if active+playing, else track number
+      // Animated eq bars when active + playing, else number
       const idxHTML = (isActive && playing)
-        ? '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>'
+        ? '<span class="eq-bars"><span></span><span></span><span></span><span></span></span>'
         : toGu(song.id);
 
-      // Art: <img> with gradient background as fallback (CSS bg shows if image fails)
-      const artStyle = "width:46px;height:46px;border-radius:4px;object-fit:cover;display:block;background:" + grad + (thumb ? ";background-image:url(" + thumb + ");background-size:cover;background-position:center" : "");
+      // Art: gradient bg with local image (or YouTube thumb) on top
+      const artStyle =
+        "width:46px;height:46px;border-radius:4px;object-fit:cover;display:block;" +
+        "background:" + grad +
+        (artUrl ? ";background-image:url(" + artUrl + ");background-size:cover;background-position:center" : "");
 
       const btn = document.createElement("button");
       btn.type      = "button";
@@ -225,17 +269,18 @@
       els.songList.appendChild(btn);
     });
 
-    // Scroll active row into view
+    // Scroll active row into view (within song list, not page)
     const active = els.songList.querySelector(".song-item.active");
     if (active) active.scrollIntoView({ block: "nearest", behavior: "smooth" });
   }
 
   // ── Playback ──────────────────────────────────────
   function resetProgress() {
-    els.progressBar.value             = 0;
-    els.progressFill.style.width      = "0%";
-    els.timeCurrent.textContent       = "0:00";
-    els.timeTotal.textContent         = "0:00";
+    if (els.progressBar)     els.progressBar.value        = 0;
+    if (els.progressFill)    els.progressFill.style.width  = "0%";
+    if (els.miniProgressFill)els.miniProgressFill.style.width = "0%";
+    if (els.timeCurrent)     els.timeCurrent.textContent   = "0:00";
+    if (els.timeTotal)       els.timeTotal.textContent     = "0:00";
   }
 
   function loadAudio(song) {
@@ -281,8 +326,14 @@
 
   function updatePlayBtn() {
     const playing = state.isPlaying && !els.audio.paused;
-    els.playIcon.classList.toggle("hidden", playing);
-    els.pauseIcon.classList.toggle("hidden", !playing);
+
+    // Main play button icons
+    if (els.playIcon)  els.playIcon.classList.toggle("hidden",  playing);
+    if (els.pauseIcon) els.pauseIcon.classList.toggle("hidden", !playing);
+
+    // Mini-player + playing state class + list re-render
+    updatePlayingState();
+    updateMiniPlayer();
     renderList();
   }
 
@@ -315,16 +366,22 @@
     setStatus("નવી રમત શરૂ! 🎉");
   }
 
-  // ── Seek events ───────────────────────────────────
-  function startSeek() { state.isSeeking = true; els.progressTrack.classList.add("seeking"); }
+  // ── Seek ──────────────────────────────────────────
+  function startSeek() { state.isSeeking = true; if (els.progressTrack) els.progressTrack.classList.add("seeking"); }
   function endSeek()   {
     state.isSeeking = false;
-    els.progressTrack.classList.remove("seeking");
+    if (els.progressTrack) els.progressTrack.classList.remove("seeking");
     seekTo(Number(els.progressBar.value));
+  }
+
+  // Scroll main-scroll to top (to show full player)
+  function scrollToPlayer() {
+    if (els.mainScroll) els.mainScroll.scrollTo({ top: 0, behavior: "smooth" });
   }
 
   // ── Event binding ─────────────────────────────────
   function bindEvents() {
+    // Main controls
     els.btnPlay.addEventListener("click",    togglePlay);
     els.btnNext.addEventListener("click",    goNext);
     els.btnPrev.addEventListener("click",    goPrev);
@@ -332,6 +389,20 @@
     els.btnRestart.addEventListener("click", restartGame);
     els.volumeBar.addEventListener("input",  updateVolume);
 
+    // Mini-player controls (all delegate to same functions)
+    if (els.miniPlay)   els.miniPlay.addEventListener("click",   togglePlay);
+    if (els.miniNext)   els.miniNext.addEventListener("click",   goNext);
+    if (els.miniPrev)   els.miniPrev.addEventListener("click",   goPrev);
+    if (els.miniRandom) els.miniRandom.addEventListener("click", pickRandom);
+    // Tapping song info scrolls back to full player
+    if (els.miniInfoBtn) els.miniInfoBtn.addEventListener("click", scrollToPlayer);
+    // Mini art img fallback
+    if (els.miniArtImg) {
+      els.miniArtImg.addEventListener("error", function () { this.style.opacity = "0"; });
+      els.miniArtImg.addEventListener("load",  function () { this.style.opacity = "1"; });
+    }
+
+    // Progress scrubber
     els.progressBar.addEventListener("pointerdown",   startSeek);
     els.progressBar.addEventListener("pointerup",     endSeek);
     els.progressBar.addEventListener("pointercancel", endSeek);
@@ -344,16 +415,17 @@
       if (state.isSeeking && duration()) els.audio.currentTime = (val / PROGRESS_MAX) * duration();
     });
 
+    // Audio events
     els.audio.addEventListener("timeupdate",     function () { if (!state.isSeeking) syncProgress(); });
-    els.audio.addEventListener("loadedmetadata", function () { els.timeTotal.textContent = formatTime(duration()); syncProgress(); });
-    els.audio.addEventListener("durationchange", function () { els.timeTotal.textContent = formatTime(duration()); });
+    els.audio.addEventListener("loadedmetadata", function () { if (els.timeTotal) els.timeTotal.textContent = formatTime(duration()); syncProgress(); });
+    els.audio.addEventListener("durationchange", function () { if (els.timeTotal) els.timeTotal.textContent = formatTime(duration()); });
     els.audio.addEventListener("seeked",         function () { if (!state.isSeeking) syncProgress(); });
     els.audio.addEventListener("play",           function () { state.isPlaying = true;  updatePlayBtn(); });
     els.audio.addEventListener("pause",          function () { state.isPlaying = false; updatePlayBtn(); });
     els.audio.addEventListener("ended",          function () { state.isPlaying = false; updatePlayBtn(); setStatus("ગીત પૂરું થયું"); });
     els.audio.addEventListener("error",          function () { setStatus("ઑડિયો ફાઇલ મળી નહીં"); });
 
-    // If YouTube thumb fails to load, keep the gradient fallback
+    // Main art image fallback
     if (els.nowArtImg) {
       els.nowArtImg.addEventListener("error", function () { this.style.opacity = "0"; });
       els.nowArtImg.addEventListener("load",  function () { this.style.opacity = "1"; });
@@ -382,7 +454,7 @@
       loadAudio(currentSong());
       updateDisplay();
       bindEvents();
-      setStatus("પ્લે દબાવો · ગીત ટેપ કરો · અથવા રેન્ડમ");
+      setStatus("પ્લે દબાવો · ગીત ટેપ કરો · અથવા 🎲 રેન્ડમ");
     } catch (err) {
       setStatus("songs.json લોડ થઈ શક્યું નહીં");
       console.error(err);

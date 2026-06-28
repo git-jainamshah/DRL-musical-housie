@@ -17,6 +17,7 @@
       "year": 1964,
       "singers": "Lata Mangeshkar",
       "musicBy": "Madan Mohan",
+      "image": "musical_housie_ablum_pictures/song_1_lag_ja_gale.jpg",
       "youtube": "https://www.youtube.com/watch?v=TFr6G5zveS8",
       "audio": "audio/01-lag-jaa-gale.m4a"
     },
@@ -29,6 +30,7 @@
       "year": 1969,
       "singers": "Kishore Kumar",
       "musicBy": "S.D. Burman",
+      "image": "musical_housie_ablum_pictures/song_2_roop_tera_mastana.jpg",
       "youtube": "https://www.youtube.com/watch?v=9LdPg9fA1yc",
       "audio": "audio/02-roop-tera-mastana.m4a"
     },
@@ -41,6 +43,7 @@
       "year": 1973,
       "singers": "Kishore Kumar",
       "musicBy": "Kalyanji-Anandji",
+      "image": "musical_housie_ablum_pictures/song_3_pal_pal_dil_ke_paas.jpg",
       "youtube": "https://www.youtube.com/watch?v=AMuRRXCuy-4",
       "audio": "audio/03-pal-pal-dil-ke-paas.m4a"
     },
@@ -53,6 +56,7 @@
       "year": 1973,
       "singers": "Mohammed Rafi & Asha Bhosle",
       "musicBy": "R.D. Burman",
+      "image": "musical_housie_ablum_pictures/song_4_chura_liya_hai_tumne.jpg",
       "youtube": "https://www.youtube.com/watch?v=7FltRcGOSOk",
       "audio": "audio/04-chura-liya-hai-tumne.m4a"
     },
@@ -65,6 +69,7 @@
       "year": 1971,
       "singers": "Asha Bhosle",
       "musicBy": "R.D. Burman",
+      "image": "musical_housie_ablum_pictures/song_5_dum_maro_dum.jpg",
       "youtube": "https://www.youtube.com/watch?v=3pviIz9NApU",
       "audio": "audio/05-dum-maaro-dum.m4a"
     },
@@ -77,6 +82,7 @@
       "year": 1969,
       "singers": "Kishore Kumar",
       "musicBy": "S.D. Burman",
+      "image": "musical_housie_ablum_pictures/song_6_mere_sapno_ki_rani.jpg",
       "youtube": "https://www.youtube.com/watch?v=J7MUCYk89UQ",
       "audio": "audio/06-mere-sapnon-ki-rani.m4a"
     },
@@ -89,6 +95,7 @@
       "year": 1975,
       "singers": "Kishore Kumar & Manna Dey",
       "musicBy": "R.D. Burman",
+      "image": "musical_housie_ablum_pictures/song_7_yeh_dosti_hum_nahi.jpg",
       "youtube": "https://www.youtube.com/watch?v=HyHNuVaZSe-k",
       "audio": "audio/07-ye-dosti-hum-nahin.m4a"
     },
@@ -101,6 +108,7 @@
       "year": 1988,
       "singers": "Alka Yagnik",
       "musicBy": "Laxmikant-Pyarelal",
+      "image": "musical_housie_ablum_pictures/song_8_ek_do_teen.jpg",
       "youtube": "https://www.youtube.com/watch?v=A5pSnIwbpaM",
       "audio": "audio/08-ek-do-teen.m4a"
     },
@@ -113,6 +121,7 @@
       "year": 1995,
       "singers": "Kumar Sanu & Lata Mangeshkar",
       "musicBy": "Jatin-Lalit",
+      "image": "musical_housie_ablum_pictures/song_9_tujhe_dekha_to.jpg",
       "youtube": "https://www.youtube.com/watch?v=7MF4Y9zYDL4",
       "audio": "audio/09-tujhe-dekha-to.m4a"
     },
@@ -125,6 +134,7 @@
       "year": 1992,
       "singers": "Udit Narayan & Sadhana Sargam",
       "musicBy": "Jatin-Lalit",
+      "image": "musical_housie_ablum_pictures/song_10_pehla_nasha.jpg",
       "youtube": "https://www.youtube.com/watch?v=2FZ55Ki2RtE",
       "audio": "audio/10-pehla-nasha.m4a"
     },
@@ -137,6 +147,7 @@
       "year": 1970,
       "singers": "Mahendra Kapoor",
       "musicBy": "Kalyanji-Anandji",
+      "image": "musical_housie_ablum_pictures/song_11_aaj_kal_tere_mere_pyar.jpg",
       "youtube": "https://www.youtube.com/watch?v=d8abh1pA90A",
       "audio": "audio/11-aaj-kal-tere-mere-pyar.m4a"
     },
@@ -149,6 +160,7 @@
       "year": 1970,
       "singers": "Mohammed Rafi",
       "musicBy": "R.D. Burman",
+      "image": "musical_housie_ablum_pictures/song_12_gulabi_aankhen.jpg",
       "youtube": "https://www.youtube.com/watch?v=YZ69PB_grFQ",
       "audio": "audio/12-gulabi-aankhen.m4a"
     },
@@ -161,6 +173,7 @@
       "year": 1972,
       "singers": "Kishore Kumar",
       "musicBy": "R.D. Burman",
+      "image": "musical_housie_ablum_pictures/song_13_o_mere_dil_ke_chain.jpg",
       "youtube": "https://www.youtube.com/watch?v=j7N3GVDG5QI",
       "audio": "audio/13-aye-mere-dil-ke-chain.m4a"
     },
@@ -173,6 +186,7 @@
       "year": 1994,
       "singers": "Kumar Sanu",
       "musicBy": "R.D. Burman",
+      "image": "musical_housie_ablum_pictures/song_14_ek_ladki_ko_dekha.jpg",
       "youtube": "https://www.youtube.com/watch?v=nWnTw7cF2S8",
       "audio": "audio/14-ek-ladki-ko-dekha.m4a"
     },
@@ -185,6 +199,7 @@
       "year": 1989,
       "singers": "S.P. Balasubrahmanyam",
       "musicBy": "Raam Laxman",
+      "image": "musical_housie_ablum_pictures/song_15_dil_deewana.jpg",
       "youtube": "https://www.youtube.com/watch?v=rTuxUAu_JOE",
       "audio": "audio/15-dil-deewana.m4a"
     },
@@ -197,6 +212,7 @@
       "year": 1976,
       "singers": "Mukesh & Lata Mangeshkar",
       "musicBy": "Khayyam",
+      "image": "musical_housie_ablum_pictures/song_16_kabhi_kabhie_mere_dil.jpg",
       "youtube": "https://www.youtube.com/watch?v=5Kx0i_pG2CU",
       "audio": "audio/16-kabhi-kabhi-mere-dil.m4a"
     },
@@ -209,6 +225,7 @@
       "year": 1995,
       "singers": "Kavita Krishnamurthy & Udit Narayan",
       "musicBy": "Jatin-Lalit",
+      "image": "musical_housie_ablum_pictures/song_17_mehndi_laga_ke_rakhna.jpg",
       "youtube": "https://www.youtube.com/watch?v=Sk2Kx3S53ac",
       "audio": "audio/17-mehndi-laga-ke-rakhna.m4a"
     },
@@ -221,6 +238,7 @@
       "year": 1998,
       "singers": "Sukhwinder Singh & Sapna Awasthi",
       "musicBy": "A.R. Rahman",
+      "image": "musical_housie_ablum_pictures/song_18_chaiyya_chaiyya.jpg",
       "youtube": "https://www.youtube.com/watch?v=2k5D0l6cP0U",
       "audio": "audio/18-chaiyya-chaiyya.m4a"
     },
@@ -233,6 +251,7 @@
       "year": 1985,
       "singers": "Shabbir Kumar",
       "musicBy": "Laxmikant-Pyarelal",
+      "image": "musical_housie_ablum_pictures/song_19_yaar_bina_chain_kahan_re.jpg",
       "youtube": "https://www.youtube.com/watch?v=yVImQoGNdTE",
       "audio": "audio/19-yaar-bina-chain.m4a"
     },
@@ -245,6 +264,7 @@
       "year": 2007,
       "singers": "Sunidhi Chauhan",
       "musicBy": "Sajid-Wajid",
+      "image": "musical_housie_ablum_pictures/song_20_disco_deewane.jpg",
       "youtube": "https://www.youtube.com/watch?v=Am7GAB9z1qk",
       "audio": "audio/20-dil-do-na.m4a"
     },
@@ -257,6 +277,7 @@
       "year": 1978,
       "singers": "Mohammed Rafi",
       "musicBy": "Kalyanji-Anandji",
+      "image": "musical_housie_ablum_pictures/song_21_khaike_paan_banaraswala.jpg",
       "youtube": "https://www.youtube.com/watch?v=7nFir23c6gk",
       "audio": "audio/21-khaike-paan-banaras.m4a"
     },
@@ -269,6 +290,7 @@
       "year": 1967,
       "singers": "Lata Mangeshkar",
       "musicBy": "Shankar-Jaikishan",
+      "image": "musical_housie_ablum_pictures/song_22_aap_ki_nazron_ne_samjha.jpg",
       "youtube": "https://www.youtube.com/watch?v=IiP6ZR7HI9Y",
       "audio": "audio/22-aap-ke-nazron-ne.m4a"
     },
@@ -281,6 +303,7 @@
       "year": 1987,
       "singers": "Kavita Krishnamurthy",
       "musicBy": "Laxmikant-Pyarelal",
+      "image": "musical_housie_ablum_pictures/song_23_hawa_hawai.jpg",
       "youtube": "https://www.youtube.com/watch?v=I2ZUoaJpr2Y",
       "audio": "audio/23-hawa-hawai.m4a"
     },
@@ -293,6 +316,7 @@
       "year": 1991,
       "singers": "Kavita Krishnamurthy & Udit Narayan",
       "musicBy": "Laxmikant-Pyarelal",
+      "image": "musical_housie_ablum_pictures/song_24_jumma_chumma_de_de.jpg",
       "youtube": "https://www.youtube.com/watch?v=2Aah1xQ5YMA",
       "audio": "audio/24-jumma-chumma-de-de.m4a"
     },
@@ -305,6 +329,7 @@
       "year": 1993,
       "singers": "Kumar Sanu",
       "musicBy": "Anu Malik",
+      "image": "musical_housie_ablum_pictures/song_25_yeh_kaali_kaali_aankhen.jpg",
       "youtube": "https://www.youtube.com/watch?v=UptDCjw2i9w",
       "audio": "audio/25-ye-kaali-kaali-aankhen.m4a"
     },
@@ -317,6 +342,7 @@
       "year": 1993,
       "singers": "Alka Yagnik & Ila Arun",
       "musicBy": "Laxmikant-Pyarelal",
+      "image": "musical_housie_ablum_pictures/song_26_choli_ke_peeche.jpg",
       "youtube": "https://www.youtube.com/watch?v=pPsgBUd-1-0",
       "audio": "audio/26-choli-ke-peeche.m4a"
     },
@@ -329,6 +355,7 @@
       "year": 1994,
       "singers": "S.P. Balasubrahmanyam & Lata Mangeshkar",
       "musicBy": "Raam Laxman",
+      "image": "musical_housie_ablum_pictures/song_27_didi_tera_devar_deewana.jpg",
       "youtube": "https://www.youtube.com/watch?v=xQ-VJ7H8d5s",
       "audio": "audio/27-didi-tera-devar.m4a"
     },
@@ -341,6 +368,7 @@
       "year": 1999,
       "singers": "Roop Kumar Rathod",
       "musicBy": "Anu Malik",
+      "image": "musical_housie_ablum_pictures/song_28_jo_haal_dil_ka.jpg",
       "youtube": "https://www.youtube.com/watch?v=6h3S2XVrXKk",
       "audio": "audio/28-jo-haal-dil-ka.m4a"
     },
@@ -353,6 +381,7 @@
       "year": 1995,
       "singers": "Lata Mangeshkar",
       "musicBy": "Jatin-Lalit",
+      "image": "musical_housie_ablum_pictures/song_29_mere_khwabon_mein_jo.jpg",
       "youtube": "https://www.youtube.com/watch?v=8Zv63hh7x3w",
       "audio": "audio/29-mere-khwabon-mein-jo.m4a"
     },
@@ -365,6 +394,7 @@
       "year": 1980,
       "singers": "Usha Uthup",
       "musicBy": "Biddu",
+      "image": "musical_housie_ablum_pictures/song_30_laila_main_laila.jpg",
       "youtube": "https://www.youtube.com/watch?v=zC3UbTfSaf0",
       "audio": "audio/30-laila-main-laila.m4a"
     }
