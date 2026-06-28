@@ -698,7 +698,11 @@ body {
   backdrop-filter: blur(30px) saturate(160%);
   -webkit-backdrop-filter: blur(30px) saturate(160%);
   z-index: 10;
+  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(255,255,255,0.05);
+  transition: background 0.12s;
 }
+.mini-player:active { background: rgba(35, 35, 35, 0.98); }
 
 /* Thin progress line at top of mini-player */
 .mini-progress-bar {
@@ -858,6 +862,15 @@ body {
 }
 .mini-play-btn svg { width: 22px; height: 22px; }
 .mini-play-btn:active { background: #ddd; transform: scale(0.93); }
+
+/* iOS volume note */
+.vol-ios-note {
+  font-size: 0.72rem;
+  color: var(--muted);
+  text-align: center;
+  padding: 10px 0 6px;
+  width: 100%;
+}
 
 /* ─── Loading State ───────────────────────────────── */
 .loading .controls-section,

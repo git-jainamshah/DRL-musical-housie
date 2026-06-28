@@ -160,9 +160,25 @@
   }
 
   // ── Volume ────────────────────────────────────────
+  // iOS ignores audio.volume — hardware buttons only
+  const isIOS = /ipad|iphone|ipod/i.test(navigator.userAgent) && !window.MSStream;
+
   function updateVolume() {
     if (els.volumeFill) els.volumeFill.style.width = els.volumeBar.value + "%";
-    els.audio.volume = els.volumeBar.value / 100;
+    if (!isIOS) els.audio.volume = els.volumeBar.value / 100;
+  }
+
+  function setupVolumeUI() {
+    if (isIOS) {
+      const row = document.querySelector(".volume-row");
+      if (row) {
+        row.innerHTML =
+          '<p class="vol-ios-note">🔊 iOS: Use volume buttons to adjust</p>';
+      }
+    } else {
+      updateVolume();
+      els.volumeBar.addEventListener("input", updateVolume);
+    }
   }
 
   // ── Art URL — local image first, YouTube thumb as fallback ──
@@ -387,15 +403,14 @@
     els.btnPrev.addEventListener("click",    goPrev);
     els.btnRandom.addEventListener("click",  pickRandom);
     els.btnRestart.addEventListener("click", restartGame);
-    els.volumeBar.addEventListener("input",  updateVolume);
 
-    // Mini-player controls (all delegate to same functions)
-    if (els.miniPlay)   els.miniPlay.addEventListener("click",   togglePlay);
-    if (els.miniNext)   els.miniNext.addEventListener("click",   goNext);
-    if (els.miniPrev)   els.miniPrev.addEventListener("click",   goPrev);
-    if (els.miniRandom) els.miniRandom.addEventListener("click", pickRandom);
-    // Tapping song info scrolls back to full player
-    if (els.miniInfoBtn) els.miniInfoBtn.addEventListener("click", scrollToPlayer);
+    // Mini-player: entire bar taps to scroll to full player;
+    // control buttons stop propagation so they don't trigger the scroll
+    if (els.miniPlayer) els.miniPlayer.addEventListener("click", scrollToPlayer);
+    if (els.miniPlay)   els.miniPlay.addEventListener("click",   function(e) { e.stopPropagation(); togglePlay(); });
+    if (els.miniNext)   els.miniNext.addEventListener("click",   function(e) { e.stopPropagation(); goNext(); });
+    if (els.miniPrev)   els.miniPrev.addEventListener("click",   function(e) { e.stopPropagation(); goPrev(); });
+    if (els.miniRandom) els.miniRandom.addEventListener("click", function(e) { e.stopPropagation(); pickRandom(); });
     // Mini art img fallback
     if (els.miniArtImg) {
       els.miniArtImg.addEventListener("error", function () { this.style.opacity = "0"; });
@@ -450,7 +465,7 @@
       }
 
       state.songs = data.songs;
-      updateVolume();
+      setupVolumeUI();
       loadAudio(currentSong());
       updateDisplay();
       bindEvents();
