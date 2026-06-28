@@ -214,7 +214,7 @@
     }
 
     // Info
-    setTxt(els.miniNumber, toGu(state.currentHousieNumber));
+    setTxt(els.miniNumber, toGu(song.id));
     setTxt(els.miniName,   song.nameGu);
     setTxt(els.miniSub,    (song.singers || "") + (song.movie ? " · " + song.movie : ""));
 
@@ -228,7 +228,7 @@
     const song = currentSong();
     if (!song) return;
 
-    setTxt(els.housieNumber,  toGu(state.currentHousieNumber));
+    setTxt(els.housieNumber,  toGu(song.id));
     setTxt(els.numberAliases, houseNums(song.id).map(toGu).join(" · "));
     setTxt(els.songNameGu,    song.nameGu);
     setTxt(els.songNameHi,    song.nameHi);
@@ -250,7 +250,7 @@
 
     state.songs.forEach(function (song) {
       const isActive  = song.id === curId;
-      const allPlayed = houseNums(song.id).every(function (n) { return state.playedNumbers.has(n); });
+      const allPlayed = state.playedNumbers.has(song.id);
       const nums      = houseNums(song.id).map(toGu).join("·");
       const grad    = songGradient(song.id);
       const artUrl  = getArtUrl(song, "mqdefault");
@@ -354,16 +354,16 @@
   }
 
   function goNext() {
-    playSongByHousie(state.currentHousieNumber >= 90 ? 1 : state.currentHousieNumber + 1);
+    playSongByHousie(state.currentHousieNumber >= 30 ? 1 : state.currentHousieNumber + 1);
   }
   function goPrev() {
-    playSongByHousie(state.currentHousieNumber <= 1 ? 90 : state.currentHousieNumber - 1);
+    playSongByHousie(state.currentHousieNumber <= 1 ? 30 : state.currentHousieNumber - 1);
   }
 
   function pickRandom() {
     const unplayed = [];
-    for (let i = 1; i <= 90; i++) if (!state.playedNumbers.has(i)) unplayed.push(i);
-    const pool = unplayed.length ? unplayed : Array.from({ length: 90 }, function (_, i) { return i + 1; });
+    for (let i = 1; i <= 30; i++) if (!state.playedNumbers.has(i)) unplayed.push(i);
+    const pool = unplayed.length ? unplayed : Array.from({ length: 30 }, function (_, i) { return i + 1; });
     const pick  = pool[Math.floor(Math.random() * pool.length)];
     playSongByHousie(pick);
     setStatus("🎲 " + toGu(pick) + " · " + (currentSong() || {}).nameGu);
