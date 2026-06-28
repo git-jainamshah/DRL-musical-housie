@@ -1,0 +1,10 @@
+{
+  "name": "drl-musical-housie",
+  "version": "1.0.0",
+  "description": "Live song player for DRL Royal Ladies Musical Housie family function",
+  "private": true,
+  "scripts": {
+    "download": "python3 scripts/download-songs.py",
+    "serve": "python3 -m http.server 3000"
+  }
+}

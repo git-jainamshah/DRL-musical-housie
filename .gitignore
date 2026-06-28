@@ -1,0 +1,9 @@
+node_modules/
+.DS_Store
+*.log
+.env
+.env.*
+
+# Keep audio folder structure but ignore large files until downloaded
+# Remove the line below if you want to commit audio to git
+# audio/*.mp3

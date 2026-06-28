@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#121212">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>મ્યુઝિકલ હાઉઝી · DRL</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Gujarati:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="app">
+
+  <!-- ══ Sticky Top Bar ══════════════════════════ -->
+  <header class="top-bar">
+    <div class="top-bar-row">
+      <div class="top-bar-titles">
+        <span class="top-group" id="event-title">ડભોઈ રોયેલ લેડીઝ</span>
+        <span class="top-sep">·</span>
+        <span class="top-game" id="event-subtitle">મ્યુઝિકલ હાઉઝી</span>
+      </div>
+      <button class="restart-btn" id="btn-restart" aria-label="Restart game">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/>
+        </svg>
+        <span>ફરી શરૂ</span>
+      </button>
+    </div>
+    <p class="top-date" id="event-date">તારીખ: ૧ જુલાઈ, ૨૦૨૬</p>
+  </header>
+
+  <!-- ══ Scrollable Main ═════════════════════════ -->
+  <main class="main-scroll">
+
+    <!-- NOW PLAYING ─────────────────────────────── -->
+    <section class="now-playing">
+
+      <!-- Album Art (YouTube thumb + gradient fallback) -->
+      <div class="art-wrap">
+        <div class="art-bg" id="now-art-bg"></div><!-- gradient fallback layer -->
+        <img class="art-img" id="now-art-img" src="" alt="" aria-hidden="true">
+      </div>
+
+      <!-- Housie Number (the hero element) -->
+      <div class="np-number-block">
+        <p class="np-number-label">હાઉઝી નંબર</p>
+        <div class="np-number" id="housie-number">૧</div>
+        <p class="np-aliases" id="number-aliases">૧ · ૩૧ · ૬૧</p>
+      </div>
+
+      <!-- Song Details -->
+      <div class="np-details">
+        <h2 class="np-name-gu" id="song-name-gu">લગ જા ગલે</h2>
+        <p class="np-name-hi" id="song-name-hi">लग जा गले</p>
+        <p class="np-singers" id="song-singers">Lata Mangeshkar</p>
+        <p class="np-meta" id="song-meta">Woh Kaun Thi · 1964 · Music: Madan Mohan</p>
+      </div>
+    </section>
+
+    <!-- PLAYER CONTROLS ─────────────────────────── -->
+    <section class="controls-section">
+
+      <!-- Progress -->
+      <div class="progress-area">
+        <div class="progress-track" id="progress-track">
+          <div class="progress-fill" id="progress-fill"></div>
+          <input type="range" id="progress-bar" class="progress-range"
+            min="0" max="1000" value="0" step="1" aria-label="Song progress">
+        </div>
+        <div class="time-row">
+          <span id="time-current">0:00</span>
+          <span id="time-total">0:00</span>
+        </div>
+      </div>
+
+      <!-- Prev · Play · Next -->
+      <div class="main-controls">
+        <button class="ctrl-btn ctrl-skip" id="btn-prev" aria-label="Previous song">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M6 6h2v12H6V6zm3.5 6 8.5 6V6l-8.5 6z"/>
+          </svg>
+        </button>
+        <button class="ctrl-btn ctrl-play" id="btn-play" aria-label="Play or pause">
+          <svg class="play-icon" id="play-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M8 5v14l11-7L8 5z"/>
+          </svg>
+          <svg class="play-icon hidden" id="pause-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+          </svg>
+        </button>
+        <button class="ctrl-btn ctrl-skip" id="btn-next" aria-label="Next song">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M16 18h2V6h-2v12zm-11-7 8.5-6v12L5 11z"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Volume -->
+      <div class="volume-row">
+        <svg class="vol-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M7 9v6h4l5 5V4l-5 5H7z"/>
+        </svg>
+        <div class="volume-track">
+          <div class="volume-fill" id="volume-fill"></div>
+          <input type="range" id="volume-bar" class="volume-range"
+            min="0" max="100" value="85" aria-label="Volume">
+        </div>
+        <svg class="vol-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+        </svg>
+      </div>
+
+      <p class="status-msg" id="status-msg" role="status" aria-live="polite"></p>
+    </section>
+
+    <!-- TRACK LIST ───────────────────────────────── -->
+    <section class="tracklist-section">
+      <div class="tracklist-header">
+        <h3 class="tracklist-title">ગીત યાદી</h3>
+        <span class="tracklist-badge">૩૦ ગીત</span>
+      </div>
+      <p class="tracklist-hint">ગીત પર ટેપ કરો — ચાલુ થશે</p>
+      <div class="tracklist" id="song-list" role="list"></div>
+    </section>
+
+    <!-- FOOTER ──────────────────────────────────── -->
+    <footer class="footer">
+      <p class="footer-evening" id="event-evening">સંગીતમય સાંજ</p>
+      <p class="footer-label">સંચાલન</p>
+      <p class="footer-hosts" id="event-hosts">
+        જયશ્રી શાહ · હેતલ શાહ · રીના શાહ · સંગીતા શાહ · હીના શાહ · મીતા ફડિયા · હેમલતા શાહ
+      </p>
+      <!-- Hidden data element — JS reads this, not rendered -->
+      <span id="event-blessing" hidden></span>
+    </footer>
+  </main>
+
+  <!-- ══ Sticky Bottom: Random ════════════════════ -->
+  <div class="bottom-bar">
+    <button class="random-btn" id="btn-random">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
+      </svg>
+      <span>રેન્ડમ નંબર</span>
+    </button>
+  </div>
+
+</div><!-- #app -->
+
+<audio id="audio-player" preload="metadata"></audio>
+<script src="js/app.js"></script>
+</body>
+</html>
