@@ -469,7 +469,7 @@
       loadAudio(currentSong());
       updateDisplay();
       bindEvents();
-      setStatus("પ્લે દબાવો · ગીત ટેપ કરો · અથવા 🎲 રેન્ડમ");
+      setStatus("");
     } catch (err) {
       setStatus("songs.json લોડ થઈ શક્યું નહીં");
       console.error(err);
