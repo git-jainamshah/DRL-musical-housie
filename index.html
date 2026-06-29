@@ -214,6 +214,23 @@
 </div><!-- #app -->
 
 <audio id="audio-player" preload="metadata"></audio>
-<script src="js/app.js?v=20260629b"></script>
+<script src="js/app.js?v=20260629c"></script>
+<script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("/sw.js").then(function (reg) {
+      // If a new SW is waiting, activate it immediately
+      if (reg.waiting) reg.waiting.postMessage({ type: "SKIP_WAITING" });
+      reg.addEventListener("updatefound", function () {
+        var newSW = reg.installing;
+        newSW.addEventListener("statechange", function () {
+          if (newSW.state === "installed" && navigator.serviceWorker.controller) {
+            // New SW installed — reload to apply fresh cache
+            window.location.reload();
+          }
+        });
+      });
+    });
+  }
+</script>
 </body>
 </html>
