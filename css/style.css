@@ -80,6 +80,7 @@ body {
   -webkit-backdrop-filter: blur(22px) saturate(180%);
   border-bottom: none;
   border-radius: 0 0 28px 28px;
+  cursor: pointer;
   box-shadow:
     /* very soft inner depth — no hard line */
     inset 0 -2px 8px rgba(255, 255, 255, 0.04),
