@@ -20,7 +20,7 @@
 
   --font-gu:    "Noto Sans Gujarati", system-ui, sans-serif;
   --font-hi:    "Noto Sans Devanagari", system-ui, sans-serif;
-  --font-en:    "Inter", "SF Pro Display", system-ui, -apple-system, sans-serif;
+  --font-en:    "Bricolage Grotesque", system-ui, -apple-system, sans-serif;
 
   --safe-top:    env(safe-area-inset-top, 0px);
   --safe-bottom: env(safe-area-inset-bottom, 0px);
@@ -149,7 +149,7 @@ body {
 }
 
 .top-title {
-  font-size: 0.92rem;
+  font-size: 1.12rem;
   font-weight: 700;
   color: var(--white);
   white-space: nowrap;
@@ -157,6 +157,7 @@ body {
   text-overflow: ellipsis;
   display: block;
   letter-spacing: 0.01em;
+  line-height: 1.2;
 }
 
 .top-subtitle-row {
@@ -710,18 +711,14 @@ body {
   margin-top: 8px;
 }
 .footer-evening {
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--sub);
   margin-bottom: 6px;
 }
 .footer-label {
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+  font-size: 0.68rem;
+  font-weight: 600;
   color: var(--muted);
   margin-bottom: 4px;
 }
