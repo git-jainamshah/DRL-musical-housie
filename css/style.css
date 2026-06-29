@@ -86,25 +86,36 @@ body {
     0 6px 28px rgba(0, 0, 0, 0.30);
 }
 
-/* Ingrained glass edge — iOS-style specular, fades at corners */
+/* Glass bending-light effect — Fresnel highlights at the curved corners */
 .top-bar::after {
   content: '';
   position: absolute;
   bottom: 0;
-  left: 8%;
-  right: 8%;
-  height: 1px;
+  left: 0;
+  right: 0;
+  height: 36px;
   border-radius: 0 0 28px 28px;
-  background: linear-gradient(
-    90deg,
-    transparent          0%,
-    rgba(255,255,255,0.06) 15%,
-    rgba(255,255,255,0.14) 40%,
-    rgba(255,255,255,0.16) 50%,
-    rgba(255,255,255,0.14) 60%,
-    rgba(255,255,255,0.06) 85%,
-    transparent          100%
-  );
+  background:
+    /* Light catching at left curve — oblique angle = higher reflectivity */
+    radial-gradient(ellipse 36% 85% at 2% 100%,
+      rgba(255,255,255,0.30) 0%,
+      rgba(255,255,255,0.10) 38%,
+      transparent 68%
+    ),
+    /* Light catching at right curve */
+    radial-gradient(ellipse 36% 85% at 98% 100%,
+      rgba(255,255,255,0.30) 0%,
+      rgba(255,255,255,0.10) 38%,
+      transparent 68%
+    ),
+    /* Very faint connecting thread between the two corners */
+    linear-gradient(90deg,
+      transparent 6%,
+      rgba(255,255,255,0.04) 28%,
+      rgba(255,255,255,0.06) 50%,
+      rgba(255,255,255,0.04) 72%,
+      transparent 94%
+    );
   pointer-events: none;
 }
 
