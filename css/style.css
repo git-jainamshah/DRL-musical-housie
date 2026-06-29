@@ -80,12 +80,32 @@ body {
   border-bottom: none;
   border-radius: 0 0 28px 28px;
   box-shadow:
-    /* shiny curved bottom edge — follows the border-radius */
-    inset 0 -1.5px 0 rgba(255, 255, 255, 0.35),
-    /* soft green inner glow along the bottom */
-    inset 0 -3px 12px rgba(29, 185, 84, 0.08),
-    /* outer drop shadow for depth */
-    0 6px 24px rgba(0, 0, 0, 0.35);
+    /* very soft inner depth — no hard line */
+    inset 0 -2px 8px rgba(255, 255, 255, 0.04),
+    /* outer floating shadow */
+    0 6px 28px rgba(0, 0, 0, 0.30);
+}
+
+/* Ingrained glass edge — iOS-style specular, fades at corners */
+.top-bar::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 8%;
+  right: 8%;
+  height: 1px;
+  border-radius: 0 0 28px 28px;
+  background: linear-gradient(
+    90deg,
+    transparent          0%,
+    rgba(255,255,255,0.06) 15%,
+    rgba(255,255,255,0.14) 40%,
+    rgba(255,255,255,0.16) 50%,
+    rgba(255,255,255,0.14) 60%,
+    rgba(255,255,255,0.06) 85%,
+    transparent          100%
+  );
+  pointer-events: none;
 }
 
 .top-bar-inner {
