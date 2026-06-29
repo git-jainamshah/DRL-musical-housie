@@ -313,8 +313,6 @@ body {
 .np-number-label {
   font-size: 0.65rem;
   font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
   color: rgba(255,255,255,0.65);
   margin-bottom: 4px;
   font-family: var(--font-en);
@@ -662,7 +660,7 @@ body {
 
 .song-item-idx {
   font-size: 0.8rem;
-  color: var(--muted);
+  color: rgba(255,255,255,0.80);
   font-variant-numeric: tabular-nums;
   text-align: center;
   line-height: 1;

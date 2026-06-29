@@ -171,10 +171,7 @@
   function setupVolumeUI() {
     if (isIOS) {
       const row = document.querySelector(".volume-row");
-      if (row) {
-        row.innerHTML =
-          '<p class="vol-ios-note">🔊 iOS: Use volume buttons to adjust</p>';
-      }
+      if (row) row.style.display = "none";
     } else {
       updateVolume();
       els.volumeBar.addEventListener("input", updateVolume);
