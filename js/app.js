@@ -180,7 +180,8 @@
 
   // ── Art URL — local image first, YouTube thumb as fallback ──
   function getArtUrl(song, ytQuality) {
-    return song.image || getYouTubeThumb(song.youtube, ytQuality || "hqdefault") || null;
+    if (song.image) return song.image + "?v=20260629";
+    return getYouTubeThumb(song.youtube, ytQuality || "hqdefault") || null;
   }
 
   // ── Art (main player) ─────────────────────────────
