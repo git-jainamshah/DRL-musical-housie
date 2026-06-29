@@ -589,14 +589,14 @@ body {
 
 /* ─── Tracklist ───────────────────────────────────── */
 .tracklist-section {
-  padding: 0 12px 8px;
+  padding: 0 0 8px;
 }
 
 .tracklist-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 4px;
+  padding: 8px 16px;
   border-bottom: 1px solid var(--border);
   margin-bottom: 2px;
 }
@@ -624,8 +624,8 @@ body {
   grid-template-columns: 20px 46px 1fr auto;
   align-items: center;
   gap: 10px;
-  padding: 8px 4px;
-  border-radius: 6px;
+  padding: 8px 16px;
+  border-radius: 0;
   cursor: pointer;
   border: none;
   background: transparent;
@@ -633,13 +633,30 @@ body {
   text-align: left;
   width: 100%;
   min-height: 62px;
-  transition: background 0.12s;
+  transition: background 0.15s;
   -webkit-user-select: none;
   user-select: none;
 }
+/* Glass-style hover — subtle white shimmer instead of grey */
 .song-item:active,
-.song-item:hover { background: var(--hover); }
-.song-item.active { background: var(--green-dim); }
+.song-item:hover {
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0.03) 0%,
+    rgba(255,255,255,0.07) 40%,
+    rgba(255,255,255,0.07) 60%,
+    rgba(255,255,255,0.03) 100%
+  );
+}
+.song-item.active {
+  background: linear-gradient(
+    90deg,
+    rgba(29,185,84,0.05) 0%,
+    rgba(29,185,84,0.13) 40%,
+    rgba(29,185,84,0.13) 60%,
+    rgba(29,185,84,0.05) 100%
+  );
+}
 .song-item.played { opacity: 0.38; }
 
 .song-item-idx {

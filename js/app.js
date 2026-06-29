@@ -397,6 +397,14 @@
 
   // ── Event binding ─────────────────────────────────
   function bindEvents() {
+    // Tapping the header scrolls to music controls (restart btn keeps its own action)
+    const topBar = document.querySelector(".top-bar");
+    if (topBar) {
+      topBar.addEventListener("click", function(e) {
+        if (!e.target.closest("#btn-restart")) scrollToPlayer();
+      });
+    }
+
     // Main controls
     els.btnPlay.addEventListener("click",    togglePlay);
     els.btnNext.addEventListener("click",    goNext);
