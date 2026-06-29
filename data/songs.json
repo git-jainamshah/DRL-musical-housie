@@ -19,7 +19,7 @@
       "musicBy": "Madan Mohan",
       "image": "musical_housie_ablum_pictures/song_1_lag_ja_gale.jpg",
       "youtube": "https://www.youtube.com/watch?v=DFbbpMD3taw",
-      "audio": "audio/01-lag-jaa-gale.m4a"
+      "audio": "audio/01-lag-jaa-gale.mp3"
     },
     {
       "id": 2,
@@ -32,7 +32,7 @@
       "musicBy": "S.D. Burman",
       "image": "musical_housie_ablum_pictures/song_2_roop_tera_mastana.jpg",
       "youtube": "https://www.youtube.com/watch?v=dyEdcOhxJNQ",
-      "audio": "audio/02-roop-tera-mastana.m4a"
+      "audio": "audio/02-roop-tera-mastana.mp3"
     },
     {
       "id": 3,
@@ -45,7 +45,7 @@
       "musicBy": "Kalyanji-Anandji",
       "image": "musical_housie_ablum_pictures/song_3_pal_pal_dil_ke_paas.jpg",
       "youtube": "https://www.youtube.com/watch?v=AMuRRXCuy-4",
-      "audio": "audio/03-pal-pal-dil-ke-paas.m4a"
+      "audio": "audio/03-pal-pal-dil-ke-paas.mp3"
     },
     {
       "id": 4,
@@ -58,7 +58,7 @@
       "musicBy": "R.D. Burman",
       "image": "musical_housie_ablum_pictures/song_4_chura_liya_hai_tumne.jpg",
       "youtube": "https://www.youtube.com/watch?v=seFeZOgyFsc",
-      "audio": "audio/04-chura-liya-hai-tumne.m4a"
+      "audio": "audio/04-chura-liya-hai-tumne.mp3"
     },
     {
       "id": 5,
@@ -71,7 +71,7 @@
       "musicBy": "R.D. Burman",
       "image": "musical_housie_ablum_pictures/song_5_dum_maro_dum.jpg",
       "youtube": "https://www.youtube.com/watch?v=kOrRYDJ4AuY",
-      "audio": "audio/05-dum-maaro-dum.m4a"
+      "audio": "audio/05-dum-maaro-dum.mp3"
     },
     {
       "id": 6,
@@ -84,11 +84,11 @@
       "musicBy": "S.D. Burman",
       "image": "musical_housie_ablum_pictures/song_6_mere_sapno_ki_rani.jpg",
       "youtube": "https://www.youtube.com/watch?v=UlWAjd9bcKw",
-      "audio": "audio/06-mere-sapnon-ki-rani.m4a"
+      "audio": "audio/06-mere-sapnon-ki-rani.mp3"
     },
     {
       "id": 7,
-      "nameGu": "યે દોસ્તી હમ નહીં",
+      "nameGu": "યે દોસ્તી હમ નહીં તોડેંગે",
       "nameHi": "ये दोस्ती हम नहीं",
       "nameEn": "Ye Dosti Hum Nahin",
       "movie": "Sholay",
@@ -97,7 +97,7 @@
       "musicBy": "R.D. Burman",
       "image": "musical_housie_ablum_pictures/song_7_yeh_dosti_hum_nahi.jpg",
       "youtube": "https://www.youtube.com/watch?v=wFAU_duK0Jc",
-      "audio": "audio/07-ye-dosti-hum-nahin.m4a"
+      "audio": "audio/07-ye-dosti-hum-nahin.mp3"
     },
     {
       "id": 8,
@@ -110,7 +110,7 @@
       "musicBy": "Laxmikant-Pyarelal",
       "image": "musical_housie_ablum_pictures/song_8_ek_do_teen.jpg",
       "youtube": "https://www.youtube.com/watch?v=MS5BLS2sIDM",
-      "audio": "audio/08-ek-do-teen.m4a"
+      "audio": "audio/08-ek-do-teen.mp3"
     },
     {
       "id": 9,
@@ -123,7 +123,7 @@
       "musicBy": "Jatin-Lalit",
       "image": "musical_housie_ablum_pictures/song_9_tujhe_dekha_to.jpg",
       "youtube": "https://www.youtube.com/watch?v=cNV5hLSa9H8",
-      "audio": "audio/09-tujhe-dekha-to.m4a"
+      "audio": "audio/09-tujhe-dekha-to.mp3"
     },
     {
       "id": 10,
@@ -136,7 +136,7 @@
       "musicBy": "Jatin-Lalit",
       "image": "musical_housie_ablum_pictures/song_10_pehla_nasha.jpg",
       "youtube": "https://www.youtube.com/watch?v=SBfPs-PMGTA",
-      "audio": "audio/10-pehla-nasha.m4a"
+      "audio": "audio/10-pehla-nasha.mp3"
     },
     {
       "id": 11,
@@ -149,7 +149,7 @@
       "musicBy": "Shankar-Jaikishan",
       "image": "musical_housie_ablum_pictures/song_11_aaj_kal_tere_mere_pyar.jpg",
       "youtube": "https://www.youtube.com/watch?v=ulEiyaxHx4s",
-      "audio": "audio/11-aaj-kal-tere-mere-pyar.m4a"
+      "audio": "audio/11-aaj-kal-tere-mere-pyar.mp3"
     },
     {
       "id": 12,
@@ -162,7 +162,7 @@
       "musicBy": "R.D. Burman",
       "image": "musical_housie_ablum_pictures/song_12_gulabi_aankhen.jpg",
       "youtube": "https://www.youtube.com/watch?v=Xsn0QjMN3fM",
-      "audio": "audio/12-gulabi-aankhen.m4a"
+      "audio": "audio/12-gulabi-aankhen.mp3"
     },
     {
       "id": 13,
@@ -175,7 +175,7 @@
       "musicBy": "R.D. Burman",
       "image": "musical_housie_ablum_pictures/song_13_o_mere_dil_ke_chain.jpg",
       "youtube": "https://www.youtube.com/watch?v=_w14bUcxl1c",
-      "audio": "audio/13-aye-mere-dil-ke-chain.m4a"
+      "audio": "audio/13-aye-mere-dil-ke-chain.mp3"
     },
     {
       "id": 14,
@@ -188,7 +188,7 @@
       "musicBy": "R.D. Burman",
       "image": "musical_housie_ablum_pictures/song_14_ek_ladki_ko_dekha.jpg",
       "youtube": "https://www.youtube.com/watch?v=htMvfOfixuM",
-      "audio": "audio/14-ek-ladki-ko-dekha.m4a"
+      "audio": "audio/14-ek-ladki-ko-dekha.mp3"
     },
     {
       "id": 15,
@@ -201,7 +201,7 @@
       "musicBy": "Raam Laxman",
       "image": "musical_housie_ablum_pictures/song_15_dil_deewana.jpg",
       "youtube": "https://www.youtube.com/watch?v=5s68NXiaWgk",
-      "audio": "audio/15-dil-deewana.m4a"
+      "audio": "audio/15-dil-deewana.mp3"
     },
     {
       "id": 16,
@@ -214,7 +214,7 @@
       "musicBy": "Khayyam",
       "image": "musical_housie_ablum_pictures/song_16_kabhi_kabhie_mere_dil.jpg",
       "youtube": "https://www.youtube.com/watch?v=-W2dagktUp0",
-      "audio": "audio/16-kabhi-kabhi-mere-dil.m4a"
+      "audio": "audio/16-kabhi-kabhi-mere-dil.mp3"
     },
     {
       "id": 17,
@@ -227,7 +227,7 @@
       "musicBy": "Jatin-Lalit",
       "image": "musical_housie_ablum_pictures/song_17_mehndi_laga_ke_rakhna.jpg",
       "youtube": "https://www.youtube.com/watch?v=-bNwqXvMuB8",
-      "audio": "audio/17-mehndi-laga-ke-rakhna.m4a"
+      "audio": "audio/17-mehndi-laga-ke-rakhna.mp3"
     },
     {
       "id": 18,
@@ -240,7 +240,7 @@
       "musicBy": "A.R. Rahman",
       "image": "musical_housie_ablum_pictures/song_18_chaiyya_chaiyya.jpg",
       "youtube": "https://www.youtube.com/watch?v=9yT4F8hzykY",
-      "audio": "audio/18-chaiyya-chaiyya.m4a"
+      "audio": "audio/18-chaiyya-chaiyya.mp3"
     },
     {
       "id": 19,
@@ -253,7 +253,7 @@
       "musicBy": "Laxmikant-Pyarelal",
       "image": "musical_housie_ablum_pictures/song_19_yaar_bina_chain_kahan_re.jpg",
       "youtube": "https://www.youtube.com/watch?v=rHVB-w1Dt2g",
-      "audio": "audio/19-yaar-bina-chain.m4a"
+      "audio": "audio/19-yaar-bina-chain.mp3"
     },
     {
       "id": 20,
@@ -266,7 +266,7 @@
       "musicBy": "Biddu",
       "image": "musical_housie_ablum_pictures/song_20_disco_deewane.jpg",
       "youtube": "https://www.youtube.com/watch?v=_b2smR_tINE",
-      "audio": "audio/20-disco-deewane.m4a"
+      "audio": "audio/20-disco-deewane.mp3"
     },
     {
       "id": 21,
@@ -279,7 +279,7 @@
       "musicBy": "Kalyanji-Anandji",
       "image": "musical_housie_ablum_pictures/song_21_khaike_paan_banaraswala.jpg",
       "youtube": "https://www.youtube.com/watch?v=VyqhPYe0vew",
-      "audio": "audio/21-khaike-paan-banaras.m4a"
+      "audio": "audio/21-khaike-paan-banaras.mp3"
     },
     {
       "id": 22,
@@ -292,7 +292,7 @@
       "musicBy": "Madan Mohan",
       "image": "musical_housie_ablum_pictures/song_22_aap_ki_nazron_ne_samjha.jpg",
       "youtube": "https://www.youtube.com/watch?v=Wv-VlQMD0VY",
-      "audio": "audio/22-aap-ke-nazron-ne.m4a"
+      "audio": "audio/22-aap-ke-nazron-ne.mp3"
     },
     {
       "id": 23,
@@ -305,7 +305,7 @@
       "musicBy": "Laxmikant-Pyarelal",
       "image": "musical_housie_ablum_pictures/song_23_hawa_hawai.jpg",
       "youtube": "https://www.youtube.com/watch?v=IgKdXLfxgQQ",
-      "audio": "audio/23-hawa-hawai.m4a"
+      "audio": "audio/23-hawa-hawai.mp3"
     },
     {
       "id": 24,
@@ -318,11 +318,11 @@
       "musicBy": "Laxmikant-Pyarelal",
       "image": "musical_housie_ablum_pictures/song_24_jumma_chumma_de_de.jpg",
       "youtube": "https://www.youtube.com/watch?v=5gTToFIZp-g",
-      "audio": "audio/24-jumma-chumma-de-de.m4a"
+      "audio": "audio/24-jumma-chumma-de-de.mp3"
     },
     {
       "id": 25,
-      "nameGu": "યે કાલી કાલી આંખો",
+      "nameGu": "યે કાલી કાલી આંખેં",
       "nameHi": "ये काली काली आँखें",
       "nameEn": "Ye Kaali Kaali Aankhen",
       "movie": "Baazigar",
@@ -331,7 +331,7 @@
       "musicBy": "Anu Malik",
       "image": "musical_housie_ablum_pictures/song_25_yeh_kaali_kaali_aankhen.jpg",
       "youtube": "https://www.youtube.com/watch?v=KC-DuX51NY0",
-      "audio": "audio/25-ye-kaali-kaali-aankhen.m4a"
+      "audio": "audio/25-ye-kaali-kaali-aankhen.mp3"
     },
     {
       "id": 26,
@@ -344,7 +344,7 @@
       "musicBy": "Laxmikant-Pyarelal",
       "image": "musical_housie_ablum_pictures/song_26_choli_ke_peeche.jpg",
       "youtube": "https://www.youtube.com/watch?v=3OXiqmUhB70",
-      "audio": "audio/26-choli-ke-peeche.m4a"
+      "audio": "audio/26-choli-ke-peeche.mp3"
     },
     {
       "id": 27,
@@ -357,7 +357,7 @@
       "musicBy": "Raam Laxman",
       "image": "musical_housie_ablum_pictures/song_27_didi_tera_devar_deewana.jpg",
       "youtube": "https://www.youtube.com/watch?v=ZqcDGvCM_w0",
-      "audio": "audio/27-didi-tera-devar.m4a"
+      "audio": "audio/27-didi-tera-devar.mp3"
     },
     {
       "id": 28,
@@ -370,7 +370,7 @@
       "musicBy": "Anu Malik",
       "image": "musical_housie_ablum_pictures/song_28_jo_haal_dil_ka.jpg",
       "youtube": "https://www.youtube.com/watch?v=Y9OnEE7FAcc",
-      "audio": "audio/28-jo-haal-dil-ka.m4a"
+      "audio": "audio/28-jo-haal-dil-ka.mp3"
     },
     {
       "id": 29,
@@ -383,7 +383,7 @@
       "musicBy": "Jatin-Lalit",
       "image": "musical_housie_ablum_pictures/song_29_mere_khwabon_mein_jo.jpg",
       "youtube": "https://www.youtube.com/watch?v=s1LozokQjIg",
-      "audio": "audio/29-mere-khwabon-mein-jo.m4a"
+      "audio": "audio/29-mere-khwabon-mein-jo.mp3"
     },
     {
       "id": 30,
@@ -396,7 +396,7 @@
       "musicBy": "Biddu",
       "image": "musical_housie_ablum_pictures/song_30_laila_main_laila.jpg",
       "youtube": "https://www.youtube.com/watch?v=1i_MwtbXezY",
-      "audio": "audio/30-laila-main-laila.m4a"
+      "audio": "audio/30-laila-main-laila.mp3"
     }
   ]
 }
