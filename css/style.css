@@ -660,6 +660,7 @@ body {
 
 .song-item-idx {
   font-size: 0.8rem;
+  font-weight: 700;
   color: rgba(255,255,255,0.80);
   font-variant-numeric: tabular-nums;
   text-align: center;
