@@ -20,6 +20,7 @@
 
   --font-gu:    "Noto Sans Gujarati", system-ui, sans-serif;
   --font-hi:    "Noto Sans Devanagari", system-ui, sans-serif;
+  --font-en:    "Inter", "SF Pro Display", system-ui, -apple-system, sans-serif;
 
   --safe-top:    env(safe-area-inset-top, 0px);
   --safe-bottom: env(safe-area-inset-bottom, 0px);
@@ -86,36 +87,23 @@ body {
     0 6px 28px rgba(0, 0, 0, 0.30);
 }
 
-/* Glass bending-light effect — Fresnel highlights at the curved corners */
+/* Subtle ingrained glass edge at curved bottom */
 .top-bar::after {
   content: '';
   position: absolute;
   bottom: 0;
-  left: 0;
-  right: 0;
-  height: 36px;
+  left: 10%;
+  right: 10%;
+  height: 1px;
   border-radius: 0 0 28px 28px;
-  background:
-    /* Light catching at left curve — oblique angle = higher reflectivity */
-    radial-gradient(ellipse 36% 85% at 2% 100%,
-      rgba(255,255,255,0.30) 0%,
-      rgba(255,255,255,0.10) 38%,
-      transparent 68%
-    ),
-    /* Light catching at right curve */
-    radial-gradient(ellipse 36% 85% at 98% 100%,
-      rgba(255,255,255,0.30) 0%,
-      rgba(255,255,255,0.10) 38%,
-      transparent 68%
-    ),
-    /* Very faint connecting thread between the two corners */
-    linear-gradient(90deg,
-      transparent 6%,
-      rgba(255,255,255,0.04) 28%,
-      rgba(255,255,255,0.06) 50%,
-      rgba(255,255,255,0.04) 72%,
-      transparent 94%
-    );
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255,255,255,0.10) 30%,
+    rgba(255,255,255,0.14) 50%,
+    rgba(255,255,255,0.10) 70%,
+    transparent 100%
+  );
   pointer-events: none;
 }
 
@@ -325,8 +313,9 @@ body {
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: rgba(255,255,255,0.65);
   margin-bottom: 4px;
+  font-family: var(--font-en);
 }
 
 .np-number {
@@ -339,10 +328,11 @@ body {
 }
 
 .np-aliases {
-  font-size: 0.82rem;
-  color: var(--muted);
-  margin-top: 6px;
-  letter-spacing: 0.08em;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-top: 8px;
+  letter-spacing: 0.10em;
 }
 
 /* Song Details */
@@ -364,7 +354,7 @@ body {
 .np-name-hi {
   font-family: var(--font-hi);
   font-size: 0.95rem;
-  color: var(--sub);
+  color: rgba(255,255,255,0.72);
   margin-bottom: 8px;
 }
 
@@ -373,12 +363,14 @@ body {
   font-weight: 600;
   color: var(--green);
   margin-bottom: 4px;
+  font-family: var(--font-en);
 }
 
 .np-meta {
-  font-size: 0.75rem;
-  color: var(--muted);
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.70);
   line-height: 1.5;
+  font-family: var(--font-en);
 }
 
 /* ─── Controls ────────────────────────────────────── */
@@ -467,11 +459,12 @@ body {
   display: flex;
   justify-content: space-between;
   font-size: 0.7rem;
-  color: var(--muted);
+  color: rgba(255,255,255,0.55);
   padding: 0 2px;
   margin-top: -6px;
   margin-bottom: 16px;
   font-variant-numeric: tabular-nums;
+  font-family: var(--font-en);
 }
 
 /* Prev · Play · Next · Random */
@@ -692,15 +685,17 @@ body {
 
 .song-item-sub {
   font-size: 0.72rem;
-  color: var(--muted);
+  color: rgba(255,255,255,0.62);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-family: var(--font-en);
 }
 
 .song-item-nums {
-  font-size: 0.65rem;
-  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.88);
   white-space: nowrap;
   letter-spacing: 0.04em;
   text-align: right;
@@ -858,11 +853,12 @@ body {
 
 .mini-sub-text {
   font-size: 0.68rem;
-  color: var(--muted);
+  color: rgba(255,255,255,0.65);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   display: block;
+  font-family: var(--font-en);
 }
 
 /* Mini controls row */
