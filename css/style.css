@@ -147,6 +147,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1px;
+  padding-top: 4px;
 }
 
 .top-title {
